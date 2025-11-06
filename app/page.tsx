@@ -150,7 +150,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-2 text-gold-400">Innovative Games</h3>
               <p className="text-gray-400">
-                Unique game mechanics you won't find anywhere else
+                Unique game mechanics you won&apos;t find anywhere else
               </p>
             </div>
 

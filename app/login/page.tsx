@@ -72,7 +72,7 @@ export default function LoginPage() {
                 disabled={isLoading}
               />
               <p className="text-xs text-gray-500 mt-2">
-                Minimum 3 characters. You'll start with $10,000 balance.
+                Minimum 3 characters. You&apos;ll start with $10,000 balance.
               </p>
             </div>
 

@@ -301,9 +301,9 @@ export default function StellarCrashPage() {
             <div className="glass p-6 rounded-2xl">
               <h3 className="text-lg font-bold mb-3 text-gold-400">How to Play</h3>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li>• Place your bet and click "Start Game"</li>
+                <li>• Place your bet and click &quot;Start Game&quot;</li>
                 <li>• Watch the multiplier increase</li>
-                <li>• Click "Cash Out" before it crashes</li>
+                <li>• Click &quot;Cash Out&quot; before it crashes</li>
                 <li>• The longer you wait, the higher the multiplier</li>
                 <li>• But if it crashes before you cash out, you lose!</li>
               </ul>
