@@ -143,17 +143,17 @@ export default function CrystalSlotsPage() {
   }
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-4">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-12 px-3 sm:px-4">
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
           <Link href="/games">
-            <button className="btn-outline-gold px-4 py-2 rounded-lg flex items-center space-x-2">
+            <button className="btn-outline-gold px-3 sm:px-4 py-2 rounded-lg flex items-center space-x-2 text-sm sm:text-base">
               <ArrowLeft size={20} />
               <span>Back to Games</span>
             </button>
           </Link>
-          <div className="glass px-6 py-3 rounded-lg">
+          <div className="glass px-4 sm:px-6 py-2 sm:py-3 rounded-lg w-full sm:w-auto">
             <span className="text-gray-400">Balance: </span>
             <span className="text-xl font-bold text-gold-400">
               ${balance.toLocaleString()}
@@ -161,16 +161,16 @@ export default function CrystalSlotsPage() {
           </div>
         </div>
 
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
             <span className="gold-text-glow">Crystal Slots</span>
           </h1>
-          <p className="text-gray-400">Match mystical crystals for massive multipliers</p>
+          <p className="text-sm sm:text-base text-gray-400 px-4">Match mystical crystals for massive multipliers</p>
         </div>
 
         {/* 3D Slot Machine */}
-        <div className="glass p-4 rounded-2xl mb-8">
-          <div className="aspect-video max-w-3xl mx-auto">
+        <div className="glass p-3 sm:p-4 rounded-2xl mb-6 sm:mb-8">
+          <div className="aspect-video max-w-full sm:max-w-3xl mx-auto">
             <CrystalSlots3D reels={reels} isSpinning={isSpinning} />
           </div>
 
@@ -188,9 +188,9 @@ export default function CrystalSlotsPage() {
         </div>
 
         {/* Bet Controls */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           <div>
-            <h3 className="text-xl font-bold mb-4 text-gold-400">Bet Amount</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gold-400">Bet Amount</h3>
             <input
               type="number"
               value={betAmount}
@@ -199,15 +199,15 @@ export default function CrystalSlotsPage() {
               max={500}
               step={5}
               disabled={isSpinning}
-              className="w-full px-4 py-3 bg-dark-100 border border-gold-500/30 rounded-lg focus:outline-none focus:border-gold-500 text-white text-lg font-semibold"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-dark-100 border border-gold-500/30 rounded-lg focus:outline-none focus:border-gold-500 text-white text-base sm:text-lg font-semibold"
             />
-            <div className="flex gap-2 mt-3">
+            <div className="grid grid-cols-4 gap-2 mt-3">
               {[25, 50, 100, 250].map((amount) => (
                 <button
                   key={amount}
                   onClick={() => setBetAmount(amount)}
                   disabled={isSpinning}
-                  className="flex-1 btn-outline-gold py-2 rounded-lg text-sm"
+                  className="btn-outline-gold py-2 rounded-lg text-xs sm:text-sm"
                 >
                   ${amount}
                 </button>
@@ -218,7 +218,7 @@ export default function CrystalSlotsPage() {
           <button
             onClick={spinReels}
             disabled={isSpinning}
-            className="w-full btn-gold py-4 rounded-lg font-bold text-lg flex items-center justify-center space-x-2 disabled:opacity-50"
+            className="w-full btn-gold py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg flex items-center justify-center space-x-2 disabled:opacity-50"
           >
             {isSpinning ? (
               <>
@@ -235,20 +235,20 @@ export default function CrystalSlotsPage() {
         </div>
 
         {/* Paytable */}
-        <div className="glass p-6 rounded-2xl">
-          <h3 className="text-xl font-bold mb-4 text-gold-400">Paytable</h3>
+        <div className="glass p-4 sm:p-6 rounded-2xl">
+          <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gold-400">Paytable</h3>
           <div className="space-y-2">
             {Object.entries(SYMBOL_VALUES).map(([symbol, multiplier]) => (
-              <div key={symbol} className="flex items-center justify-between py-2 border-b border-gold-500/20">
-                <div className="flex items-center space-x-2">
-                  <span className="text-3xl">{symbol}</span>
-                  <span className="text-3xl">{symbol}</span>
-                  <span className="text-3xl">{symbol}</span>
+              <div key={symbol} className="flex items-center justify-between py-2 border-b border-gold-500/20 text-sm sm:text-base">
+                <div className="flex items-center space-x-1 sm:space-x-2">
+                  <span className="text-xl sm:text-3xl">{symbol}</span>
+                  <span className="text-xl sm:text-3xl">{symbol}</span>
+                  <span className="text-xl sm:text-3xl">{symbol}</span>
                 </div>
                 <span className="text-gold-400 font-bold">{multiplier}x</span>
               </div>
             ))}
-            <div className="flex items-center justify-between py-2">
+            <div className="flex items-center justify-between py-2 text-sm sm:text-base">
               <div className="text-gray-400">Any two matching</div>
               <span className="text-gold-400 font-bold">2x</span>
             </div>

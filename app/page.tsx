@@ -56,15 +56,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black z-10"></div>
 
         {/* Content */}
-        <div className="relative z-20 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto space-y-8">
+        <div className="relative z-20 container mx-auto px-3 sm:px-4 text-center">
+          <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
             <div className="inline-block">
-              <span className="px-4 py-2 bg-gold-500/10 border border-gold-500/30 rounded-full text-gold-400 text-sm font-semibold">
+              <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gold-500/10 border border-gold-500/30 rounded-full text-gold-400 text-xs sm:text-sm font-semibold">
                 🚀 Welcome to the Future of Gaming
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight px-4">
               <span className="gold-text-glow">SIMPLIFYING BLOCKCHAIN</span>
               <br />
               <span className="text-white">GAMING FOR A</span>
@@ -72,52 +72,52 @@ export default function Home() {
               <span className="gold-text-glow">SMARTER TOMORROW</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-base sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto px-4">
               Join the future of digital gaming with a secure, fast, and inclusive platform designed
               for seamless crypto gaming and investment.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-6 sm:pt-8 px-4">
               {userData ? (
-                <Link href="/games">
-                  <button className="btn-gold px-8 py-4 rounded-lg text-lg font-semibold flex items-center space-x-2">
+                <Link href="/games" className="w-full sm:w-auto">
+                  <button className="btn-gold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold flex items-center justify-center space-x-2 w-full">
                     <span>Start Playing</span>
                     <ArrowRight size={20} />
                   </button>
                 </Link>
               ) : (
-                <Link href="/login">
-                  <button className="btn-gold px-8 py-4 rounded-lg text-lg font-semibold flex items-center space-x-2">
+                <Link href="/login" className="w-full sm:w-auto">
+                  <button className="btn-gold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold flex items-center justify-center space-x-2 w-full">
                     <span>Get Started</span>
                     <ArrowRight size={20} />
                   </button>
                 </Link>
               )}
               
-              <Link href="/games">
-                <button className="btn-outline-gold px-8 py-4 rounded-lg text-lg font-semibold">
+              <Link href="/games" className="w-full sm:w-auto">
+                <button className="btn-outline-gold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold w-full sm:w-auto">
                   Explore Games
                 </button>
               </Link>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-16">
-              <div className="glass p-6 rounded-lg">
-                <div className="text-3xl font-bold text-gold-400">$1M+</div>
-                <div className="text-sm text-gray-400 mt-1">Total Wagered</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-8 sm:pt-12 md:pt-16">
+              <div className="glass p-4 sm:p-6 rounded-lg">
+                <div className="text-2xl sm:text-3xl font-bold text-gold-400">$1M+</div>
+                <div className="text-xs sm:text-sm text-gray-400 mt-1">Total Wagered</div>
               </div>
-              <div className="glass p-6 rounded-lg">
-                <div className="text-3xl font-bold text-gold-400">10K+</div>
-                <div className="text-sm text-gray-400 mt-1">Active Players</div>
+              <div className="glass p-4 sm:p-6 rounded-lg">
+                <div className="text-2xl sm:text-3xl font-bold text-gold-400">10K+</div>
+                <div className="text-xs sm:text-sm text-gray-400 mt-1">Active Players</div>
               </div>
-              <div className="glass p-6 rounded-lg">
-                <div className="text-3xl font-bold text-gold-400">99.9%</div>
-                <div className="text-sm text-gray-400 mt-1">Uptime</div>
+              <div className="glass p-4 sm:p-6 rounded-lg">
+                <div className="text-2xl sm:text-3xl font-bold text-gold-400">99.9%</div>
+                <div className="text-xs sm:text-sm text-gray-400 mt-1">Uptime</div>
               </div>
-              <div className="glass p-6 rounded-lg">
-                <div className="text-3xl font-bold text-gold-400">24/7</div>
-                <div className="text-sm text-gray-400 mt-1">Support</div>
+              <div className="glass p-4 sm:p-6 rounded-lg">
+                <div className="text-2xl sm:text-3xl font-bold text-gold-400">24/7</div>
+                <div className="text-xs sm:text-sm text-gray-400 mt-1">Support</div>
               </div>
             </div>
           </div>
@@ -132,54 +132,54 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="relative py-24 bg-black">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+      <section className="relative py-12 sm:py-16 md:py-24 bg-black">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               Why Choose <span className="gold-text-glow">VELA</span>?
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-base sm:text-xl text-gray-400 px-4">
               Experience gaming like never before with cutting-edge technology
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="game-card p-8 text-center float-card">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center">
-                <Sparkles size={32} className="text-black" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            <div className="game-card p-6 sm:p-8 text-center float-card">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center">
+                <Sparkles className="text-black w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-gold-400">Innovative Games</h3>
-              <p className="text-gray-400">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 text-gold-400">Innovative Games</h3>
+              <p className="text-sm sm:text-base text-gray-400">
                 Unique game mechanics you won&apos;t find anywhere else
               </p>
             </div>
 
-            <div className="game-card p-8 text-center float-card">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center">
-                <Shield size={32} className="text-black" />
+            <div className="game-card p-6 sm:p-8 text-center float-card">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center">
+                <Shield className="text-black w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-gold-400">Provably Fair</h3>
-              <p className="text-gray-400">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 text-gold-400">Provably Fair</h3>
+              <p className="text-sm sm:text-base text-gray-400">
                 Transparent and verifiable game outcomes
               </p>
             </div>
 
-            <div className="game-card p-8 text-center float-card">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center">
-                <Zap size={32} className="text-black" />
+            <div className="game-card p-6 sm:p-8 text-center float-card">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center">
+                <Zap className="text-black w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-gold-400">Instant Payouts</h3>
-              <p className="text-gray-400">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 text-gold-400">Instant Payouts</h3>
+              <p className="text-sm sm:text-base text-gray-400">
                 Lightning-fast withdrawals with no delays
               </p>
             </div>
 
-            <div className="game-card p-8 text-center float-card">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center">
-                <TrendingUp size={32} className="text-black" />
+            <div className="game-card p-6 sm:p-8 text-center float-card">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center">
+                <TrendingUp className="text-black w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-gold-400">High Returns</h3>
-              <p className="text-gray-400">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 text-gold-400">High Returns</h3>
+              <p className="text-sm sm:text-base text-gray-400">
                 Competitive odds and generous payouts
               </p>
             </div>
@@ -188,26 +188,26 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-24 bg-black">
+      <section className="relative py-12 sm:py-16 md:py-24 bg-black">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto glass p-12 rounded-2xl float-card">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="max-w-3xl mx-auto glass p-6 sm:p-8 md:p-12 rounded-2xl float-card">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
               Ready to <span className="gold-text-glow">Start Winning</span>?
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-base sm:text-xl text-gray-300 mb-6 sm:mb-8 px-4">
               Join thousands of players already enjoying the future of blockchain gaming
             </p>
             {userData ? (
-              <Link href="/games">
-                <button className="btn-gold px-12 py-4 rounded-lg text-lg font-semibold inline-flex items-center space-x-2">
+              <Link href="/games" className="w-full sm:w-auto">
+                <button className="btn-gold px-8 sm:px-12 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold inline-flex items-center justify-center space-x-2 w-full sm:w-auto">
                   <span>Play Now</span>
                   <ArrowRight size={20} />
                 </button>
               </Link>
             ) : (
-              <Link href="/login">
-                <button className="btn-gold px-12 py-4 rounded-lg text-lg font-semibold inline-flex items-center space-x-2">
-                  <span>Create Account</span>
+              <Link href="/login" className="w-full sm:w-auto">
+                <button className="btn-gold px-8 sm:px-12 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold inline-flex items-center justify-center space-x-2 w-full sm:w-auto">
+                  <span>Get Started</span>
                   <ArrowRight size={20} />
                 </button>
               </Link>

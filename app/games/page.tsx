@@ -73,14 +73,13 @@ export default function GamesPage() {
   }
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-4">
-      <div className="container mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-12 px-3 sm:px-4">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Choose Your <span className="gold-text-glow">Game</span>
           </h1>
-          <p className="text-xl text-gray-400 mb-6">
+          <p className="text-base sm:text-xl text-gray-400 px-4 mb-6">
             Select from our unique collection of futuristic games
           </p>
           <div className="inline-block glass px-6 py-3 rounded-lg">
@@ -92,35 +91,33 @@ export default function GamesPage() {
         </div>
 
         {/* Games Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {games.map((game) => {
             const Icon = game.icon;
             return (
               <Link key={game.id} href={`/games/${game.id}`}>
-                <div className="game-card p-8 h-full cursor-pointer group">
-                  <div className="flex items-start space-x-4 mb-6">
+                <div className="game-card p-4 sm:p-6 lg:p-8 group cursor-pointer">
+                  <div className="flex items-start justify-between mb-4 sm:mb-6">
                     <div className={`w-16 h-16 bg-gradient-to-br ${game.color} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
                       <Icon size={32} className="text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold mb-2 text-gold-400">
+                      <h2 className="text-xl sm:text-2xl font-bold text-gold-400 group-hover:text-gold-300 transition-colors">
                         {game.name}
-                      </h3>
-                      <p className="text-gray-400">
-                        {game.description}
-                      </p>
+                      </h2>
+                      <p className="text-gray-400 text-xs sm:text-sm mt-1">{game.description}</p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gold-500/20">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
                     <div>
-                      <div className="text-xs text-gray-500 mb-1">Min Bet</div>
+                      <p className="text-xs text-gray-500 mb-1">Min</p>
                       <div className="text-lg font-semibold text-gold-400">
                         ${game.minBet}
                       </div>
                     </div>
                     <div>
-                      <div className="text-xs text-gray-500 mb-1">Max Bet</div>
+                      <p className="text-xs text-gray-500 mb-1">Max</p>
                       <div className="text-lg font-semibold text-gold-400">
                         ${game.maxBet}
                       </div>
@@ -134,7 +131,7 @@ export default function GamesPage() {
                   </div>
 
                   <div className="mt-6">
-                    <button className="w-full btn-gold py-3 rounded-lg font-semibold group-hover:scale-105 transition-transform">
+                    <button className="w-full btn-gold py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base flex items-center justify-center space-x-2 group-hover:scale-105 transition-transform">
                       Play Now
                     </button>
                   </div>
@@ -146,7 +143,7 @@ export default function GamesPage() {
 
         {/* Info Section */}
         <div className="mt-16 max-w-4xl mx-auto">
-          <div className="glass p-8 rounded-2xl">
+          <div className="bg-dark-100 p-2 sm:p-3 rounded-lg">
             <h2 className="text-2xl font-bold mb-4 text-gold-400">
               🎮 How to Play
             </h2>

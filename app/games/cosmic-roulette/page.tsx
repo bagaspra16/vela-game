@@ -131,17 +131,17 @@ export default function CosmicRoulettePage() {
   }
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-4">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-12 px-3 sm:px-4">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
           <Link href="/games">
-            <button className="btn-outline-gold px-4 py-2 rounded-lg flex items-center space-x-2">
+            <button className="btn-outline-gold px-3 sm:px-4 py-2 rounded-lg flex items-center space-x-2 text-sm sm:text-base">
               <ArrowLeft size={20} />
               <span>Back to Games</span>
             </button>
           </Link>
-          <div className="glass px-6 py-3 rounded-lg">
+          <div className="glass px-4 sm:px-6 py-2 sm:py-3 rounded-lg w-full sm:w-auto">
             <span className="text-gray-400">Balance: </span>
             <span className="text-xl font-bold text-gold-400">
               ${balance.toLocaleString()}
@@ -149,17 +149,17 @@ export default function CosmicRoulettePage() {
           </div>
         </div>
 
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
             <span className="gold-text-glow">Cosmic Roulette</span>
           </h1>
-          <p className="text-gray-400">Spin the cosmic wheel and predict where the star will land</p>
+          <p className="text-sm sm:text-base text-gray-400 px-4">Spin the cosmic wheel and predict where the star will land</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           {/* 3D Roulette Wheel */}
-          <div className="glass p-4 rounded-2xl">
-            <div className="relative aspect-square max-w-md mx-auto">
+          <div className="glass p-3 sm:p-4 rounded-2xl">
+            <div className="relative aspect-square max-w-full sm:max-w-md mx-auto">
               <Roulette3D 
                 isSpinning={isSpinning}
                 result={result?.number ?? null}
@@ -192,10 +192,10 @@ export default function CosmicRoulettePage() {
           </div>
 
           {/* Betting Panel */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Bet Amount */}
-            <div className="glass p-6 rounded-2xl">
-              <h3 className="text-xl font-bold mb-4 text-gold-400">Bet Amount</h3>
+            <div className="glass p-4 sm:p-6 rounded-2xl">
+              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gold-400">Bet Amount</h3>
               <input
                 type="number"
                 value={betAmount}
@@ -204,15 +204,15 @@ export default function CosmicRoulettePage() {
                 max={1000}
                 step={10}
                 disabled={isSpinning}
-                className="w-full px-4 py-3 bg-dark-100 border border-gold-500/30 rounded-lg focus:outline-none focus:border-gold-500 text-white text-lg font-semibold"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-dark-100 border border-gold-500/30 rounded-lg focus:outline-none focus:border-gold-500 text-white text-base sm:text-lg font-semibold"
               />
-              <div className="flex gap-2 mt-3">
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-2 mb-4">
                 {[50, 100, 250, 500].map((amount) => (
                   <button
                     key={amount}
                     onClick={() => setBetAmount(amount)}
                     disabled={isSpinning}
-                    className="flex-1 btn-outline-gold py-2 rounded-lg text-sm"
+                    className="btn-outline-gold py-2 sm:py-3 rounded-lg text-xs sm:text-sm"
                   >
                     ${amount}
                   </button>
@@ -225,7 +225,7 @@ export default function CosmicRoulettePage() {
               <h3 className="text-xl font-bold mb-4 text-gold-400">
                 Select Number (10x payout)
               </h3>
-              <div className="grid grid-cols-6 gap-2 max-h-64 overflow-y-auto">
+              <div className="grid grid-cols-5 sm:grid-cols-6 gap-1.5 sm:gap-2 max-h-64 overflow-y-auto">
                 {NUMBERS.map((num) => (
                   <button
                     key={num}
@@ -234,15 +234,11 @@ export default function CosmicRoulettePage() {
                       setSelectedColor(null);
                     }}
                     disabled={isSpinning}
-                    className={`aspect-square rounded-lg font-bold transition-all ${
+                    className={`aspect-square flex items-center justify-center rounded-lg font-bold transition-all text-xs sm:text-sm ${
                       selectedNumber === num
-                        ? 'bg-gold-500 text-black scale-110'
-                        : getNumberColor(num) === 'red'
-                        ? 'bg-red-900/50 text-red-400 hover:bg-red-900'
-                        : getNumberColor(num) === 'green'
-                        ? 'bg-green-900/50 text-green-400 hover:bg-green-900'
-                        : 'bg-gray-900/50 text-white hover:bg-gray-900'
-                    }`}
+                        ? 'bg-gold-500 text-black'
+                        : 'bg-dark-100 text-gray-300 hover:bg-dark-50'
+                    } disabled:opacity-50`}
                   >
                     {num}
                   </button>
@@ -251,7 +247,7 @@ export default function CosmicRoulettePage() {
             </div>
 
             {/* Color Selection */}
-            <div className="glass p-6 rounded-2xl">
+            <div className="glass p-4 sm:p-6 rounded-2xl">
               <h3 className="text-xl font-bold mb-4 text-gold-400">
                 Select Color (2x payout)
               </h3>
@@ -262,11 +258,11 @@ export default function CosmicRoulettePage() {
                     setSelectedNumber(null);
                   }}
                   disabled={isSpinning}
-                  className={`py-4 rounded-lg font-bold transition-all ${
+                  className={`py-2 px-2 sm:px-3 rounded-lg font-semibold transition-all text-xs sm:text-sm ${
                     selectedColor === 'red'
-                      ? 'bg-red-500 text-white scale-105'
-                      : 'bg-red-900/50 text-red-400 hover:bg-red-900'
-                  }`}
+                      ? 'bg-gold-500 text-black'
+                      : 'bg-dark-100 text-gray-300 hover:bg-dark-50'
+                  } disabled:opacity-50`}
                 >
                   Red
                 </button>
@@ -276,11 +272,11 @@ export default function CosmicRoulettePage() {
                     setSelectedNumber(null);
                   }}
                   disabled={isSpinning}
-                  className={`py-4 rounded-lg font-bold transition-all ${
+                  className={`py-2 px-2 sm:px-3 rounded-lg font-semibold transition-all text-xs sm:text-sm ${
                     selectedColor === 'black'
-                      ? 'bg-white text-black scale-105'
-                      : 'bg-gray-900/50 text-white hover:bg-gray-900'
-                  }`}
+                      ? 'bg-gold-500 text-black'
+                      : 'bg-dark-100 text-gray-300 hover:bg-dark-50'
+                  } disabled:opacity-50`}
                 >
                   Black
                 </button>
@@ -290,11 +286,11 @@ export default function CosmicRoulettePage() {
                     setSelectedNumber(null);
                   }}
                   disabled={isSpinning}
-                  className={`py-4 rounded-lg font-bold transition-all ${
+                  className={`py-2 px-2 sm:px-3 rounded-lg font-semibold transition-all text-xs sm:text-sm ${
                     selectedColor === 'green'
-                      ? 'bg-green-500 text-white scale-105'
-                      : 'bg-green-900/50 text-green-400 hover:bg-green-900'
-                  }`}
+                      ? 'bg-gold-500 text-black'
+                      : 'bg-dark-100 text-gray-300 hover:bg-dark-50'
+                  } disabled:opacity-50`}
                 >
                   Green
                 </button>
@@ -306,7 +302,7 @@ export default function CosmicRoulettePage() {
               <button
                 onClick={handleSpin}
                 disabled={isSpinning || (!selectedNumber && !selectedColor)}
-                className="flex-1 btn-gold py-4 rounded-lg font-bold text-lg flex items-center justify-center space-x-2 disabled:opacity-50"
+                className="w-full btn-gold py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg flex items-center justify-center space-x-2 disabled:opacity-50"
               >
                 {isSpinning ? (
                   <>
