@@ -1,0 +1,29 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield Background -->
+  <path d="M250 50C250 50 150 80 120 150C90 220 100 350 250 450C400 350 410 220 380 150C350 80 250 50 250 50Z" fill="#2D1810"/>
+  <path d="M250 60C250 60 160 88 135 150C110 212 118 330 250 420C382 330 390 212 365 150C340 88 250 60 250 60Z" fill="#3D2410" stroke="#D4AF37" stroke-width="4"/>
+  
+  <!-- Crown -->
+  <path d="M250 95L235 115L245 125L250 110L255 125L265 115L250 95Z" fill="#D4AF37"/>
+  <path d="M230 115L240 125H260L270 115L265 110L255 120L250 105L245 120L235 110L230 115Z" fill="#F4D03F"/>
+  <circle cx="250" cy="100" r="5" fill="#FFD700"/>
+  
+  <!-- Coin Circle -->
+  <circle cx="250" cy="230" r="90" fill="#D4AF37"/>
+  <circle cx="250" cy="230" r="85" fill="#F4D03F" stroke="#D4AF37" stroke-width="2"/>
+  <circle cx="250" cy="230" r="75" fill="#D4AF37"/>
+  
+  <!-- Ship -->
+  <path d="M250 200L220 250L230 255L250 240L270 255L280 250L250 200Z" fill="#8B6914"/>
+  <path d="M235 240L250 230L265 240L270 250L230 250L235 240Z" fill="#6B5410"/>
+  <rect x="248" y="210" width="4" height="30" fill="#4A3810"/>
+  <path d="M252 215L265 225L265 235L252 230V215Z" fill="#E8E8E8" opacity="0.9"/>
+  <path d="M248 215L235 225L235 235L248 230V215Z" fill="#F5F5F5" opacity="0.9"/>
+  
+  <!-- Wave -->
+  <path d="M120 340C140 335 160 345 180 340C200 335 220 345 250 340C280 345 300 335 320 340C340 345 360 335 380 340" stroke="#D4AF37" stroke-width="3" fill="none"/>
+  
+  <!-- Text VELA -->
+  <text x="250" y="370" font-family="serif" font-size="48" font-weight="bold" fill="#D4AF37" text-anchor="middle">VELA</text>
+  <text x="250" y="395" font-family="serif" font-size="14" fill="#D4AF37" text-anchor="middle" letter-spacing="2">FORTUNE SAILS HERE</text>
+</svg>

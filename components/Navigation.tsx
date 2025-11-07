@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useWallet } from './WalletProvider';
 import { Wallet, Menu, X, Home, Gamepad2, History, Settings } from 'lucide-react';
 
@@ -29,13 +30,17 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gold-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
-              <div className="relative w-10 h-10 bg-gradient-to-br from-gold-400 to-gold-600 rounded-lg flex items-center justify-center">
-                <span className="text-2xl font-bold text-black">V</span>
-              </div>
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+              <Image
+                src="/vela-logo.png"
+                alt="VELA Logo"
+                width={48}
+                height={48}
+                className="w-full h-full object-contain transition-transform group-hover:scale-110"
+                priority
+              />
             </div>
-            <span className="text-2xl font-bold gold-text-glow hidden sm:block">VELA</span>
+            <span className="text-xl sm:text-2xl font-bold gold-text-glow hidden sm:block">VELA</span>
           </Link>
 
           {/* Desktop Navigation */}
