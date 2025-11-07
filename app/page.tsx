@@ -56,7 +56,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black z-10"></div>
 
         {/* Content */}
-        <div className="relative z-20 container mx-auto px-3 sm:px-4 text-center">
+        <div className="relative z-20 container mx-auto mt-16 px-3 sm:px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
             <div className="inline-block">
               <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gold-500/10 border border-gold-500/30 rounded-full text-gold-400 text-xs sm:text-sm font-semibold">

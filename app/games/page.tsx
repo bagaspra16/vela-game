@@ -77,9 +77,9 @@ export default function GamesPage() {
   }
 
   return (
-    <div className="min-h-screen pt-16 sm:pt-24 pb-8 sm:pb-12 px-2 sm:px-4">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-8 sm:pb-12 px-2 sm:px-4">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-6 sm:mb-12">
+        <div className="text-center mb-6 sm:mb-12 mt-4 sm:mt-0">
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             Choose Your <span className="gold-text-glow">Game</span>
           </h1>

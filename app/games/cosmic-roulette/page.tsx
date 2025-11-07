@@ -131,10 +131,10 @@ export default function CosmicRoulettePage() {
   }
 
   return (
-    <div className="min-h-screen pt-16 sm:pt-24 pb-8 sm:pb-12 px-2 sm:px-4">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-8 sm:pb-12 px-2 sm:px-4">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-8 gap-3 sm:gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-8 gap-3 sm:gap-4 mt-4 sm:mt-0">
           <Link href="/games">
             <button className="btn-outline-gold px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg flex items-center space-x-1.5 sm:space-x-2 text-xs sm:text-base">
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
