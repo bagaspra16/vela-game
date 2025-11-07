@@ -122,13 +122,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-          <div className="w-6 h-10 border-2 border-gold-500 rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-3 bg-gold-500 rounded-full animate-pulse"></div>
-          </div>
-        </div>
       </section>
 
       {/* Features Section */}
