@@ -158,8 +158,10 @@ export default function CosmicRoulettePage() {
 
         <div className="grid lg:grid-cols-2 gap-4 sm:gap-8">
           {/* 3D Roulette Wheel */}
-          <div className="glass p-2 sm:p-4 rounded-xl sm:rounded-2xl">
-            <div className="relative aspect-square max-w-full sm:max-w-md mx-auto">
+          <div className={`glass p-3 sm:p-6 rounded-xl sm:rounded-2xl transition-all duration-500 ${
+            isSpinning ? 'ring-2 ring-gold-500 shadow-2xl shadow-gold-500/50' : ''
+          }`}>
+            <div className="relative aspect-square w-full mx-auto">
               <Roulette3D 
                 isSpinning={isSpinning}
                 result={result?.number ?? null}
@@ -167,24 +169,35 @@ export default function CosmicRoulettePage() {
               />
             </div>
 
-            {result && (
-              <div className="mt-2 sm:mt-4 text-center">
-                <div className={`text-3xl sm:text-4xl font-bold mb-1 sm:mb-2 ${
+            {/* Spinning indicator */}
+            {isSpinning && (
+              <div className="mt-4 text-center">
+                <div className="inline-flex items-center space-x-2 text-gold-400 animate-pulse">
+                  <div className="w-2 h-2 bg-gold-400 rounded-full animate-bounce"></div>
+                  <span className="text-sm sm:text-base font-semibold">Spinning...</span>
+                  <div className="w-2 h-2 bg-gold-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                </div>
+              </div>
+            )}
+
+            {result && !isSpinning && (
+              <div className="mt-4 text-center animate-fade-in">
+                <div className={`text-4xl sm:text-5xl font-bold mb-2 ${
                   result.color === 'red' ? 'text-red-500' :
                   result.color === 'green' ? 'text-green-500' :
                   'text-white'
                 }`}>
                   {result.number}
                 </div>
-                <div className="text-lg text-gray-400 capitalize">
+                <div className="text-lg sm:text-xl text-gray-400 capitalize">
                   {result.color}
                 </div>
               </div>
             )}
 
-            {message && (
-              <div className={`mt-4 p-4 rounded-lg text-center font-semibold ${
-                message.includes('won') ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'
+            {message && !isSpinning && (
+              <div className={`mt-4 p-4 rounded-lg text-center font-semibold animate-fade-in ${
+                message.includes('won') ? 'bg-green-500/20 text-green-400 border border-green-500/50' : 'bg-red-500/20 text-red-400 border border-red-500/50'
               }`}>
                 {message}
               </div>

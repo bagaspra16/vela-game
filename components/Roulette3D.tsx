@@ -14,21 +14,43 @@ interface Roulette3DProps {
 function RouletteWheel({ isSpinning, result, rotation }: Roulette3DProps) {
   const wheelRef = useRef<THREE.Group>(null);
   const ballRef = useRef<THREE.Mesh>(null);
+  const targetRotation = useRef(0);
+  const currentRotation = useRef(0);
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
     
     if (wheelRef.current) {
       if (isSpinning) {
-        wheelRef.current.rotation.z = rotation * (Math.PI / 180);
+        // Smooth rotation interpolation
+        targetRotation.current = rotation * (Math.PI / 180);
+        currentRotation.current += (targetRotation.current - currentRotation.current) * 0.1;
+        wheelRef.current.rotation.z = currentRotation.current;
+        
+        // Add subtle wobble effect during spin
+        wheelRef.current.position.y = Math.sin(time * 10) * 0.02;
+      } else {
+        // Smooth deceleration when stopping
+        currentRotation.current += (targetRotation.current - currentRotation.current) * 0.05;
+        wheelRef.current.rotation.z = currentRotation.current;
+        wheelRef.current.position.y = 0;
       }
     }
 
-    if (ballRef.current && !isSpinning && result !== null) {
-      const angle = (result / 37) * Math.PI * 2;
-      ballRef.current.position.x = Math.cos(angle) * 2.2;
-      ballRef.current.position.z = Math.sin(angle) * 2.2;
-      ballRef.current.position.y = 0.5 + Math.sin(time * 3) * 0.1;
+    if (ballRef.current) {
+      if (isSpinning) {
+        // Ball spins in opposite direction during spin
+        const ballAngle = -rotation * (Math.PI / 180) * 0.8;
+        ballRef.current.position.x = Math.cos(ballAngle) * 2.5;
+        ballRef.current.position.z = Math.sin(ballAngle) * 2.5;
+        ballRef.current.position.y = 0.5 + Math.sin(time * 8) * 0.3;
+      } else if (result !== null) {
+        // Ball settles on result number
+        const angle = (result / 37) * Math.PI * 2;
+        ballRef.current.position.x = Math.cos(angle) * 2.2;
+        ballRef.current.position.z = Math.sin(angle) * 2.2;
+        ballRef.current.position.y = 0.5 + Math.sin(time * 3) * 0.1;
+      }
     }
   });
 
@@ -61,9 +83,23 @@ function RouletteWheel({ isSpinning, result, rotation }: Roulette3DProps) {
           metalness={1}
           roughness={0.1}
           emissive="#f59e0b"
-          emissiveIntensity={0.8}
+          emissiveIntensity={isSpinning ? 1.5 : 0.8}
         />
       </mesh>
+
+      {/* Spinning glow effect */}
+      {isSpinning && (
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.3, 0]}>
+          <torusGeometry args={[3.2, 0.3, 16, 64]} />
+          <meshStandardMaterial
+            color="#fbbf24"
+            transparent
+            opacity={0.3}
+            emissive="#fbbf24"
+            emissiveIntensity={2}
+          />
+        </mesh>
+      )}
 
       {/* Number segments */}
       {numbers.map((num, index) => {

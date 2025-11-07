@@ -235,7 +235,7 @@ export default function CrystalSlotsPage() {
         </div>
 
         {/* Paytable */}
-        <div className="glass p-4 sm:p-6 rounded-2xl">
+        <div className="glass p-4 sm:p-6 rounded-2xl mt-8">
           <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gold-400">Paytable</h3>
           <div className="space-y-2">
             {Object.entries(SYMBOL_VALUES).map(([symbol, multiplier]) => (
