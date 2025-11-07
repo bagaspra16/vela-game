@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useWallet } from '@/components/WalletProvider';
-import { Sparkles, Gem, Dices, TrendingUp } from 'lucide-react';
+import { Sparkles, Gem, Dices, TrendingUp, ArrowRight } from 'lucide-react';
 
 const games = [
   {
@@ -16,6 +16,7 @@ const games = [
     minBet: 10,
     maxBet: 1000,
     maxPayout: '10x',
+    category: 'Roulette',
   },
   {
     id: 'crystal-slots',
@@ -26,6 +27,7 @@ const games = [
     minBet: 5,
     maxBet: 500,
     maxPayout: '100x',
+    category: 'Slots',
   },
   {
     id: 'quantum-dice',
@@ -36,6 +38,7 @@ const games = [
     minBet: 20,
     maxBet: 2000,
     maxPayout: '6x',
+    category: 'Dice',
   },
   {
     id: 'stellar-crash',
@@ -46,6 +49,7 @@ const games = [
     minBet: 10,
     maxBet: 5000,
     maxPayout: '∞',
+    category: 'Crash',
   },
 ];
 
@@ -73,18 +77,18 @@ export default function GamesPage() {
   }
 
   return (
-    <div className="min-h-screen pt-20 sm:pt-24 pb-12 px-3 sm:px-4">
+    <div className="min-h-screen pt-16 sm:pt-24 pb-8 sm:pb-12 px-2 sm:px-4">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-6 sm:mb-12">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             Choose Your <span className="gold-text-glow">Game</span>
           </h1>
-          <p className="text-base sm:text-xl text-gray-400 px-4 mb-6">
+          <p className="text-sm sm:text-xl text-gray-400 px-2 sm:px-4 mb-4 sm:mb-6">
             Select from our unique collection of futuristic games
           </p>
-          <div className="inline-block glass px-6 py-3 rounded-lg">
-            <span className="text-gray-400">Your Balance: </span>
-            <span className="text-2xl font-bold text-gold-400">
+          <div className="inline-block glass px-4 sm:px-6 py-2 sm:py-3 rounded-lg">
+            <span className="text-gray-400 text-sm sm:text-base">Your Balance: </span>
+            <span className="text-xl sm:text-2xl font-bold text-gold-400">
               ${balance.toLocaleString()}
             </span>
           </div>
@@ -96,45 +100,50 @@ export default function GamesPage() {
             const Icon = game.icon;
             return (
               <Link key={game.id} href={`/games/${game.id}`}>
-                <div className="game-card p-4 sm:p-6 lg:p-8 group cursor-pointer">
-                  <div className="flex items-start justify-between mb-4 sm:mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${game.color} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                      <Icon size={32} className="text-white" />
+                <div className="game-card p-3 sm:p-6 lg:p-8 group cursor-pointer">
+                  <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${game.color} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                      <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                     </div>
-                    <div className="flex-1">
-                      <h2 className="text-xl sm:text-2xl font-bold text-gold-400 group-hover:text-gold-300 transition-colors">
+                    <div className="flex-1 min-w-0">
+                      <h2 className="text-lg sm:text-2xl font-bold text-gold-400 group-hover:text-gold-300 transition-colors truncate">
                         {game.name}
                       </h2>
-                      <p className="text-gray-400 text-xs sm:text-sm mt-1">{game.description}</p>
+                      <p className="text-gray-400 text-xs sm:text-sm mt-0.5 sm:mt-1 line-clamp-2">{game.description}</p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div>
-                      <p className="text-xs text-gray-500 mb-1">Min</p>
-                      <div className="text-lg font-semibold text-gold-400">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-3 sm:mb-4 text-center sm:text-left">
+                    <div className="bg-dark-100/50 p-2 sm:p-3 rounded">
+                      <p className="text-xs text-gray-500 mb-0.5 sm:mb-1">Min Bet</p>
+                      <div className="text-sm sm:text-lg font-semibold text-gold-400">
                         ${game.minBet}
                       </div>
                     </div>
-                    <div>
-                      <p className="text-xs text-gray-500 mb-1">Max</p>
-                      <div className="text-lg font-semibold text-gold-400">
+                    <div className="bg-dark-100/50 p-2 sm:p-3 rounded">
+                      <p className="text-xs text-gray-500 mb-0.5 sm:mb-1">Max Bet</p>
+                      <div className="text-sm sm:text-lg font-semibold text-gold-400">
                         ${game.maxBet}
                       </div>
                     </div>
-                    <div>
-                      <div className="text-xs text-gray-500 mb-1">Max Payout</div>
-                      <div className="text-lg font-semibold text-gold-400">
+                    <div className="bg-dark-100/50 p-2 sm:p-3 rounded">
+                      <div className="text-xs text-gray-500 mb-0.5 sm:mb-1">Max Payout</div>
+                      <div className="text-sm sm:text-lg font-semibold text-gold-400">
                         {game.maxPayout}
+                      </div>
+                    </div>
+                    <div className="bg-dark-100/50 p-2 sm:p-3 rounded">
+                      <div className="text-xs text-gray-500 mb-0.5 sm:mb-1">Category</div>
+                      <div className="text-sm sm:text-lg font-semibold text-gold-400 truncate">
+                        {game.category}
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-6">
-                    <button className="w-full btn-gold py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base flex items-center justify-center space-x-2 group-hover:scale-105 transition-transform">
-                      Play Now
-                    </button>
-                  </div>
+                  <button className="w-full btn-gold py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base flex items-center justify-center space-x-2 group-hover:scale-105 transition-transform">
+                    <span>Play Now</span>
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </button>
                 </div>
               </Link>
             );

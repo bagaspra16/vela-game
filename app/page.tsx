@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <div className="relative bg-black">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-16 sm:pt-0">
         {/* 3D Background */}
         <div className="absolute inset-0 z-0">
           <Hero3D />
@@ -64,7 +64,7 @@ export default function Home() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight px-4">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight px-2">
               <span className="gold-text-glow">SIMPLIFYING BLOCKCHAIN</span>
               <br />
               <span className="text-white">GAMING FOR A</span>
@@ -72,7 +72,7 @@ export default function Home() {
               <span className="gold-text-glow">SMARTER TOMORROW</span>
             </h1>
 
-            <p className="text-base sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto px-4">
+            <p className="text-sm sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto px-2 leading-relaxed">
               Join the future of digital gaming with a secure, fast, and inclusive platform designed
               for seamless crypto gaming and investment.
             </p>
@@ -102,21 +102,21 @@ export default function Home() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-8 sm:pt-12 md:pt-16">
-              <div className="glass p-4 sm:p-6 rounded-lg">
-                <div className="text-2xl sm:text-3xl font-bold text-gold-400">$1M+</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 pt-6 sm:pt-12 md:pt-16 max-w-4xl mx-auto">
+              <div className="glass p-3 sm:p-6 rounded-lg">
+                <div className="text-xl sm:text-3xl font-bold text-gold-400">$1M+</div>
                 <div className="text-xs sm:text-sm text-gray-400 mt-1">Total Wagered</div>
               </div>
-              <div className="glass p-4 sm:p-6 rounded-lg">
-                <div className="text-2xl sm:text-3xl font-bold text-gold-400">10K+</div>
+              <div className="glass p-3 sm:p-6 rounded-lg">
+                <div className="text-xl sm:text-3xl font-bold text-gold-400">10K+</div>
                 <div className="text-xs sm:text-sm text-gray-400 mt-1">Active Players</div>
               </div>
-              <div className="glass p-4 sm:p-6 rounded-lg">
-                <div className="text-2xl sm:text-3xl font-bold text-gold-400">99.9%</div>
+              <div className="glass p-3 sm:p-6 rounded-lg">
+                <div className="text-xl sm:text-3xl font-bold text-gold-400">99.9%</div>
                 <div className="text-xs sm:text-sm text-gray-400 mt-1">Uptime</div>
               </div>
-              <div className="glass p-4 sm:p-6 rounded-lg">
-                <div className="text-2xl sm:text-3xl font-bold text-gold-400">24/7</div>
+              <div className="glass p-3 sm:p-6 rounded-lg">
+                <div className="text-xl sm:text-3xl font-bold text-gold-400">24/7</div>
                 <div className="text-xs sm:text-sm text-gray-400 mt-1">Support</div>
               </div>
             </div>
