@@ -34,8 +34,8 @@ export default function Navigation() {
               <Image
                 src="/vela-logo.png"
                 alt="VELA Logo"
-                width={48}
-                height={48}
+                width={38}
+                height={38}
                 className="w-full h-full object-contain transition-transform group-hover:scale-110"
                 priority
               />
