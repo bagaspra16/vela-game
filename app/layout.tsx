@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description: "Experience the future of blockchain gaming with stunning 3D visuals and innovative gameplay. Fortune sails here at VELA.",
   icons: {
     icon: '/vela-logo.png',
+    apple: '/vela-logo.png',
   },
 };
 

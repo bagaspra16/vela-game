@@ -30,7 +30,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+            <div className="relative w-12 h-12 sm:w-16 sm:h-16">
               <Image
                 src="/vela-logo.png"
                 alt="VELA Logo"
@@ -40,7 +40,6 @@ export default function Navigation() {
                 priority
               />
             </div>
-            <span className="text-xl sm:text-2xl font-bold gold-text-glow hidden sm:block">VELA</span>
           </Link>
 
           {/* Desktop Navigation */}
