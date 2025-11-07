@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useWallet } from '@/components/WalletProvider';
 import { getSettings, updateSettings, resetAllData, Settings } from '@/lib/storage';
-import { Volume2, VolumeX, Music, Sparkles, Trash2, User } from 'lucide-react';
+import { playSound } from '@/lib/audio';
+import { Volume2, VolumeX, Music, Sparkles, Trash2, User, Check } from 'lucide-react';
 
 export default function SettingsPage() {
   const { userData, refreshUserData } = useWallet();
@@ -38,11 +39,29 @@ export default function SettingsPage() {
     const newSettings = { ...settings, [key]: value };
     setSettings(newSettings);
     updateSettings({ [key]: value });
+    
+    // Play sound effect when toggling (if sound is being enabled or if it's already enabled)
+    if (key === 'soundEnabled' && value === true) {
+      playSound('click');
+    } else if (key !== 'soundEnabled' && settings.soundEnabled) {
+      playSound('click');
+    }
   };
 
   const handleReset = () => {
+    // Reset all data from localStorage
     resetAllData();
-    router.push('/login');
+    
+    // Refresh user data in context to null
+    refreshUserData();
+    
+    // Redirect to home page (which will show login prompt)
+    router.push('/');
+    
+    // Force page reload to ensure clean state
+    setTimeout(() => {
+      window.location.href = '/';
+    }, 100);
   };
 
   if (!mounted || !userData) {
@@ -109,15 +128,17 @@ export default function SettingsPage() {
               </div>
               <button
                 onClick={() => handleSettingChange('soundEnabled', !settings.soundEnabled)}
-                className={`w-14 h-8 rounded-full transition-colors ${
-                  settings.soundEnabled ? 'bg-gold-500' : 'bg-gray-600'
+                className={`relative w-14 h-8 rounded-full transition-all duration-300 ${
+                  settings.soundEnabled ? 'bg-gold-500 shadow-lg shadow-gold-500/50' : 'bg-gray-600'
                 }`}
               >
                 <div
-                  className={`w-6 h-6 bg-white rounded-full transition-transform ${
+                  className={`absolute top-1 w-6 h-6 bg-white rounded-full transition-all duration-300 flex items-center justify-center ${
                     settings.soundEnabled ? 'translate-x-7' : 'translate-x-1'
                   }`}
-                ></div>
+                >
+                  {settings.soundEnabled && <Check size={14} className="text-gold-500" />}
+                </div>
               </button>
             </div>
 
@@ -128,15 +149,17 @@ export default function SettingsPage() {
               </div>
               <button
                 onClick={() => handleSettingChange('musicEnabled', !settings.musicEnabled)}
-                className={`w-14 h-8 rounded-full transition-colors ${
-                  settings.musicEnabled ? 'bg-gold-500' : 'bg-gray-600'
+                className={`relative w-14 h-8 rounded-full transition-all duration-300 ${
+                  settings.musicEnabled ? 'bg-gold-500 shadow-lg shadow-gold-500/50' : 'bg-gray-600'
                 }`}
               >
                 <div
-                  className={`w-6 h-6 bg-white rounded-full transition-transform ${
+                  className={`absolute top-1 w-6 h-6 bg-white rounded-full transition-all duration-300 flex items-center justify-center ${
                     settings.musicEnabled ? 'translate-x-7' : 'translate-x-1'
                   }`}
-                ></div>
+                >
+                  {settings.musicEnabled && <Check size={14} className="text-gold-500" />}
+                </div>
               </button>
             </div>
           </div>
@@ -158,15 +181,17 @@ export default function SettingsPage() {
                 onClick={() =>
                   handleSettingChange('animationsEnabled', !settings.animationsEnabled)
                 }
-                className={`w-14 h-8 rounded-full transition-colors ${
-                  settings.animationsEnabled ? 'bg-gold-500' : 'bg-gray-600'
+                className={`relative w-14 h-8 rounded-full transition-all duration-300 ${
+                  settings.animationsEnabled ? 'bg-gold-500 shadow-lg shadow-gold-500/50' : 'bg-gray-600'
                 }`}
               >
                 <div
-                  className={`w-6 h-6 bg-white rounded-full transition-transform ${
+                  className={`absolute top-1 w-6 h-6 bg-white rounded-full transition-all duration-300 flex items-center justify-center ${
                     settings.animationsEnabled ? 'translate-x-7' : 'translate-x-1'
                   }`}
-                ></div>
+                >
+                  {settings.animationsEnabled && <Check size={14} className="text-gold-500" />}
+                </div>
               </button>
             </div>
           </div>
