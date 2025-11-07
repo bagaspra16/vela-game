@@ -8,6 +8,7 @@ interface WalletContextType {
   balance: number;
   isInitialized: boolean;
   login: (username: string) => void;
+  logout: () => void;
   updateUserBalance: (amount: number) => void;
   refreshUserData: () => void;
 }
@@ -37,6 +38,11 @@ export default function WalletProvider({ children }: { children: ReactNode }) {
     setBalance(user.balance);
   };
 
+  const logout = () => {
+    setUserData(null);
+    setBalance(0);
+  };
+
   const updateUserBalance = (amount: number) => {
     const newBalance = updateBalance(amount);
     setBalance(newBalance);
@@ -48,6 +54,9 @@ export default function WalletProvider({ children }: { children: ReactNode }) {
     if (data) {
       setUserData(data);
       setBalance(data.balance);
+    } else {
+      // If no data found, logout
+      logout();
     }
   };
 
@@ -58,6 +67,7 @@ export default function WalletProvider({ children }: { children: ReactNode }) {
         balance,
         isInitialized,
         login,
+        logout,
         updateUserBalance,
         refreshUserData,
       }}

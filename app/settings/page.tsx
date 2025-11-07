@@ -8,7 +8,7 @@ import { playSound } from '@/lib/audio';
 import { Volume2, VolumeX, Music, Sparkles, Trash2, User, Check } from 'lucide-react';
 
 export default function SettingsPage() {
-  const { userData, refreshUserData } = useWallet();
+  const { userData, logout } = useWallet();
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [settings, setSettings] = useState<Settings>({
@@ -49,19 +49,17 @@ export default function SettingsPage() {
   };
 
   const handleReset = () => {
+    // Play sound effect
+    playSound('click');
+    
     // Reset all data from localStorage
     resetAllData();
     
-    // Refresh user data in context to null
-    refreshUserData();
+    // Logout user (clear context state)
+    logout();
     
-    // Redirect to home page (which will show login prompt)
-    router.push('/');
-    
-    // Force page reload to ensure clean state
-    setTimeout(() => {
-      window.location.href = '/';
-    }, 100);
+    // Redirect to login page immediately
+    router.push('/login');
   };
 
   if (!mounted || !userData) {
